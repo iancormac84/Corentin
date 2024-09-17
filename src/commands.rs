@@ -1,4 +1,4 @@
-use bevy::ecs::system::{Command, EntityCommand};
+use bevy::ecs::{system::EntityCommand, world::Command};
 use std::marker::PhantomData;
 
 use bevy::prelude::{Entity, World};

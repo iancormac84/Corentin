@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use bevy::{prelude::*, sprite::MaterialMesh2dBundle};
+use bevy::{color::palettes::css, prelude::*, sprite::MaterialMesh2dBundle};
 use corentin::prelude::*;
 
 fn main() {
@@ -20,8 +20,8 @@ fn setup_scene(
     // Circle
     commands
         .spawn(MaterialMesh2dBundle {
-            mesh: meshes.add(shape::Circle::new(50.).into()).into(),
-            material: materials.add(ColorMaterial::from(Color::PURPLE)),
+            mesh: meshes.add(Circle::new(50.)).into(),
+            material: materials.add(ColorMaterial::from_color(css::PURPLE)),
             transform: Transform::from_translation(Vec3::new(-150., 0., 0.)),
             ..default()
         })

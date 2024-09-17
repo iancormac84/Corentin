@@ -144,7 +144,7 @@ mod test {
     };
 
     use bevy::{
-        ecs::system::{Command, EntityCommand},
+        ecs::{world::Command, system::EntityCommand},
         prelude::{Component, Mut, World},
         time::Time,
     };

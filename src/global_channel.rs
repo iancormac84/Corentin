@@ -3,7 +3,7 @@ use std::cell::UnsafeCell;
 use bevy::{
     ecs::{
         entity::Entities,
-        system::{Command, CommandQueue},
+        world::{Command, CommandQueue},
     },
     prelude::{Commands, World},
 };
@@ -41,7 +41,7 @@ pub struct CommandChannel {
 impl CommandChannel {
     pub fn add(&self, _c: impl Command) {}
 
-    pub fn commands<'a>(&'a self, entities: &'a Entities) -> Commands<'_, '_> {
+    pub fn commands<'w, 's>(&'s self, entities: &'w Entities) -> Commands<'w, 's> {
         let queue = unsafe { self.storage.get_or_default().get().as_mut().unwrap() };
 
         Commands::new_from_entities(queue, entities)
